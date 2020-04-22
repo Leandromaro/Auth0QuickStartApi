@@ -2,6 +2,7 @@ package com.auth0.example.security;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -24,10 +25,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         This is where we configure the security required for our endpoints and setup our app to serve as
         an OAuth2 Resource Server, using JWT validation.
         */
-        http.authorizeRequests()
-                .mvcMatchers("/api/public").permitAll()
-                .mvcMatchers("/api/private").authenticated()
-                .mvcMatchers("/api/private-scoped").hasAuthority("SCOPE_read:messages")
+        http.cors().and().csrf().disable().authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/login/token").permitAll()
+                .antMatchers("/api/public").permitAll()
+                .antMatchers("/api/private").authenticated()
+                .antMatchers("/api/private-scoped").hasAuthority("SCOPE_read:messages")
                 .and()
                 .oauth2ResourceServer().jwt();
     }
