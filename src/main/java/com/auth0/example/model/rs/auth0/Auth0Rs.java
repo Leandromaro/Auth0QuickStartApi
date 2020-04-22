@@ -2,19 +2,19 @@
 package com.auth0.example.model.rs.auth0;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 
 public class Auth0Rs {
 
-    @JsonProperty("access_token")
+    @SerializedName("access_token")
     private String accessToken;
 
-    @JsonProperty("expires_in")
+    @SerializedName("expires_in")
     private Long expiresIn;
 
     private String scope;
 
-    @JsonProperty("token_type")
+    @SerializedName("token_type")
     private String tokenType;
 
     public String getAccessToken() {
