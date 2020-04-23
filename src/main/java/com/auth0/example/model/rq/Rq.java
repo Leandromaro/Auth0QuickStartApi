@@ -4,13 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class Rq {
 
-    @SerializedName("client_id")
     private String client_id;
-    @SerializedName("client_secret")
     private String client_secret;
-    @SerializedName("audience")
     private String audience;
-    @SerializedName("grant_type")
     private String grant_type;
 
     public Rq(String client_id, String client_secret, String audience, String grant_type) {

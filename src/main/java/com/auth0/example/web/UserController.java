@@ -6,6 +6,7 @@ import com.auth0.example.service.Auth0TokenClient;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping(path = "/token", consumes = "application/json", produces = "application/json")
-    public Rs auth(Rq request) throws UnirestException {
+    public Rs auth(@RequestBody Rq request) throws UnirestException {
         return auth0TokenClient.getToken(request);
     }
 }
