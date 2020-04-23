@@ -27,6 +27,6 @@ public class Auth0TokenClientImpl implements Auth0TokenClient {
                 .asJson();
         String responseJSONString = jsonResponse.getBody().toString();
         Auth0Rs auth0Rs = gson.fromJson(responseJSONString, Auth0Rs.class);
-        return new Rs(auth0Rs.getAccessToken(), auth0Rs.getTokenType());
+        return new Rs(auth0Rs.toString());
     }
 }

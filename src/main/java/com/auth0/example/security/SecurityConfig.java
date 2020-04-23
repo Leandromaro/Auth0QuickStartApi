@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/login/token").permitAll()
                 .antMatchers("/api/public").permitAll()
-                .antMatchers("/api/private").authenticated()
+                .antMatchers("/api/auth").authenticated()
                 .antMatchers("/api/private-scoped").hasAuthority("SCOPE_read:messages")
                 .and()
                 .oauth2ResourceServer().jwt();

@@ -48,4 +48,8 @@ public class Auth0Rs {
         tokenType = tokenType;
     }
 
+    @Override
+    public String toString() {
+        return this.tokenType + " " + this.accessToken;
+    }
 }
