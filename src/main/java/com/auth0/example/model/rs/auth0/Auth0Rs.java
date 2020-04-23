@@ -1,7 +1,6 @@
 
 package com.auth0.example.model.rs.auth0;
 
-
 import com.google.gson.annotations.SerializedName;
 
 public class Auth0Rs {

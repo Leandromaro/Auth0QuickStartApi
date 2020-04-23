@@ -15,12 +15,12 @@ public class UserController {
 
     private final Auth0TokenClient auth0TokenClient ;
 
-    public UserController(Auth0TokenClient auth0TokenClient) {
+    UserController(Auth0TokenClient auth0TokenClient) {
         this.auth0TokenClient = auth0TokenClient;
     }
 
     @PostMapping(path = "/token", consumes = "application/json", produces = "application/json")
     public Rs auth(Rq request) throws UnirestException {
-        return auth0TokenClient.getToken();
+        return auth0TokenClient.getToken(request);
     }
 }
